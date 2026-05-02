@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Someone Special</title>
+    <style>
+        :root {
+            --sunshine: #ffcc33;
+            --neon-glow: rgba(255, 204, 51, 0.6);
+            --bg-dark: #0d0d0d;
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .card {
+            background: #1a1a1a;
+            max-width: 500px;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--sunshine);
+            box-shadow: 0 0 20px var(--neon-glow);
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: var(--sunshine);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px var(--sunshine);
+        }
+
+        p {
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: var(--sunshine);
+            font-weight: bold;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--sunshine), transparent);
+            margin: 30px 0;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 15px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        /* The "Polite No" - Styled to look more inviting/correct */
+        .btn-no {
+            background: var(--sunshine);
+            color: #000;
+            box-shadow: 0 0 15px var(--neon-glow);
+        }
+
+        .btn-no:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--sunshine);
+        }
+
+        /* The "Yes" - Styled more subtly */
+        .btn-yes {
+            background: transparent;
+            color: var(--text-gray);
+            border: 1px solid #444;
+        }
+
+        .btn-yes:hover {
+            color: #fff;
+            border-color: var(--sunshine);
+        }
+
+        #final-thought {
+            margin-top: 20px;
+            font-style: italic;
+            display: none;
+            color: var(--sunshine);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Hey, Christiana</h1>
+        
+        <p>I’ve written and deleted this a dozen times, but I needed to be honest with you. Every time you <span class="highlight">smile</span>, it changes the energy of the whole room. You have this incredible <span class="highlight">sunshine energy</span> that's impossible to ignore.</p>
+
+        <p>I admire how <span class="highlight">attentive and kind</span> you are. Truly. Beyond your beauty, it’s the way you consider people that really got to me. I've developed some very real feelings for you.</p>
+
+        <div class="divider"></div>
+
+        <p>But here’s the hardest part to say: <span style="color: #fff;">You deserve the absolute best.</span></p>
+        
+        <p>Right now, I’m in a place where I'm still building. I know the kind of life and "taste" you deserve, and I’m just not in a position to provide that for you yet. I value you too much to give you anything less than 100%.</p>
+
+        <p>So, I’m telling you this to be free of the secret, but I’m asking you to choose the path that lets us both keep growing—separately.</p>
+
+        <div class="btn-container" id="actions">
+            <button class="btn-no" onclick="respond('no')">I appreciate the honesty. Let's stay friends.</button>
+            <button class="btn-yes" onclick="respond('yes')">I appreciate you, but I still want to be with you.</button>
+        </div>
+
+        <div id="final-thought"></div>
+    </div>
+
+    <script>
+        function respond(type) {
+            const actions = document.getElementById('actions');
+            const thought = document.getElementById('final-thought');
+            actions.style.display = 'none';
+            thought.style.display = 'block';
+
+            if (type === 'no') {
+                thought.innerHTML = "Thank you. That's exactly what I needed to hear. Your kindness means the world to me.";
+            } else {
+                thought.innerHTML = "I hear you. This is a lot to process—let’s take it slow and talk soon.";
+            }
+        }
+    </script>
+</body>
+</html>
